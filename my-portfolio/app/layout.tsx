@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Bebas_Neue, Sora } from "next/font/google";
+import Nav from "./_sections/Nav";
 import "./globals.css";
 
 const displayFont = Bebas_Neue({
@@ -28,6 +29,7 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body className={`${displayFont.variable} ${bodyFont.variable} antialiased`}>
+        <Nav />
         {children}
       </body>
     </html>
