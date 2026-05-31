@@ -1,13 +1,14 @@
 @import "tailwindcss";
 
 :root {
-  --background: #0b0e14;
-  --foreground: #e8edf5;
-  --surface: #111621;
-  --surface-strong: #172033;
-  --accent: #f6c453;
-  --accent-strong: #ff9f1c;
-  --muted: #9aa6bd;
+  --background: #060b13;
+  --foreground: #e6f1ff;
+  --surface: #0c1424;
+  --surface-strong: #101d33;
+  --accent: #45dcff;
+  --accent-strong: #1aa3ff;
+  --muted: #7e8fb0;
+  --line: rgba(69, 220, 255, 0.22);
 }
 
 @theme inline {
@@ -19,8 +20,8 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0b0e14;
-    --foreground: #e8edf5;
+    --background: #060b13;
+    --foreground: #e6f1ff;
   }
 }
 
@@ -31,6 +32,11 @@
 html,
 body {
   min-height: 100%;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 96px;
 }
 
 body {
@@ -57,10 +63,10 @@ body {
   height: 70vh;
   background: radial-gradient(
     circle at 20% 20%,
-    rgba(246, 196, 83, 0.35),
-    transparent 55%
+    rgba(69, 220, 255, 0.2),
+    transparent 62%
   );
-  filter: blur(12px);
+  filter: blur(26px);
   z-index: 0;
 }
 
@@ -71,10 +77,10 @@ body {
   height: 65vh;
   background: radial-gradient(
     circle at 80% 80%,
-    rgba(35, 111, 219, 0.25),
-    transparent 60%
+    rgba(30, 90, 200, 0.26),
+    transparent 65%
   );
-  filter: blur(16px);
+  filter: blur(28px);
   z-index: 0;
 }
 
@@ -82,30 +88,116 @@ body {
   position: absolute;
   inset: 0;
   background-image: linear-gradient(
-      rgba(255, 255, 255, 0.06) 1px,
+      rgba(255, 255, 255, 0.035) 1px,
       transparent 1px
     ),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-  background-size: 64px 64px;
-  opacity: 0.25;
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 84px 84px;
+  opacity: 0.14;
   pointer-events: none;
   z-index: 0;
 }
 
 .glass-card {
   background: linear-gradient(
-    140deg,
-    rgba(23, 32, 51, 0.85),
-    rgba(17, 22, 33, 0.75)
+    150deg,
+    rgba(12, 19, 34, 0.95),
+    rgba(7, 12, 22, 0.92)
   );
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 24px 60px rgba(8, 12, 20, 0.45);
-  backdrop-filter: blur(10px);
+  border: 1px solid var(--line);
+  box-shadow: 0 24px 50px rgba(2, 6, 12, 0.7);
+  backdrop-filter: blur(12px);
 }
 
 .accent-ring {
-  box-shadow: 0 0 0 1px rgba(246, 196, 83, 0.35),
-    0 0 24px rgba(246, 196, 83, 0.2);
+  box-shadow: 0 0 0 1px rgba(69, 220, 255, 0.35),
+    0 0 28px rgba(26, 163, 255, 0.3);
+}
+
+.hud-label {
+  font-size: 0.62rem;
+  letter-spacing: 0.38em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.hud-line {
+  border-left: 2px solid rgba(69, 220, 255, 0.4);
+  padding-left: 1rem;
+}
+
+.panel {
+  position: relative;
+  border: 1px solid var(--line);
+  background: linear-gradient(180deg, rgba(10, 17, 31, 0.95), rgba(6, 10, 18, 0.92));
+  box-shadow: inset 0 0 0 1px rgba(69, 220, 255, 0.06),
+    0 20px 40px rgba(1, 4, 10, 0.6);
+}
+
+.panel::before,
+.panel::after {
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border: 2px solid rgba(69, 220, 255, 0.75);
+}
+
+.panel::before {
+  top: -2px;
+  left: -2px;
+  border-right: none;
+  border-bottom: none;
+}
+
+.panel::after {
+  bottom: -2px;
+  right: -2px;
+  border-left: none;
+  border-top: none;
+}
+
+.panel-title {
+  font-size: 0.65rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.neo-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 12px;
+  border: 1px solid rgba(69, 220, 255, 0.5);
+  padding: 0.75rem 1.5rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--foreground);
+  background: rgba(10, 20, 34, 0.8);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.neo-button:hover {
+  transform: translateY(-2px);
+  border-color: rgba(69, 220, 255, 0.9);
+  box-shadow: 0 0 18px rgba(69, 220, 255, 0.35);
+}
+
+.neo-button.primary {
+  color: #021018;
+  background: linear-gradient(120deg, rgba(69, 220, 255, 0.9), rgba(26, 163, 255, 0.9));
+  border-color: transparent;
+}
+
+.neo-tag {
+  border: 1px solid rgba(69, 220, 255, 0.35);
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
 }
 
 .reveal {
@@ -122,6 +214,24 @@ body {
 
 .reveal-delay-3 {
   animation-delay: 0.45s;
+}
+
+section[id] {
+  scroll-margin-top: 90px;
+}
+
+/* Hide Next.js dev indicator button if it still appears */
+#__next-build-watcher,
+.nextjs-portal,
+[data-nextjs-portal],
+[data-nextjs-dev-overlay] {
+  display: none !important;
+}
+
+/* Fallback: hide the Next.js devtools badge by its SVG defs ids */
+button:has(#next_logo_mask0),
+svg:has(#next_logo_mask0) {
+  display: none !important;
 }
 
 @keyframes reveal {

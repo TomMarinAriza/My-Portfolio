@@ -7,6 +7,9 @@ const nextConfig: NextConfig = {
   trailingSlash: true,
   basePath: isProd ? "/My-Portfolio" : "",
   assetPrefix: isProd ? "/My-Portfolio/" : "",
+  devIndicators: {
+    buildActivity: false,
+  },
   images: {
     unoptimized: true,
   },
