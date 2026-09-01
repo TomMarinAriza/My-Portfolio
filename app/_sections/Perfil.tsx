@@ -27,7 +27,7 @@ export default function Perfil() {
           <a className="neo-button primary" href="#contacto">
             Contratar
           </a>
-          <a className="neo-button" href="/cv.pdf">
+          <a className="neo-button" href="/cv.pdf" download="CV-Tomas-Marin.pdf">
             Ver CV
           </a>
         </div>
