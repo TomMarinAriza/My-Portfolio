@@ -17,6 +17,15 @@ export const projects: Project[] = [
     link: "https://github.com/TomMarinAriza/Kitsune-videogame-demo",
     trailer: "",
   },
+  {
+    title: "Toon market",
+    role: "Programacion, gameplay y diseño de niveles",
+    description:
+      "Juego 3D de supervivencia explorando un centro comercial de toons donde el jugdor descubre su oscuro secreto.",
+    tags: ["Godot", "GDScript y C#", "PC"],
+    link: "",
+    trailer: "",
+  },
 ];
 
 export const skills = [
