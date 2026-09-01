@@ -3,7 +3,8 @@ export type Project = {
   role: string;
   description: string;
   tags: string[];
-  link: string;
+  link?: string;
+  trailer?: string;
 };
 
 export const projects: Project[] = [
@@ -14,6 +15,7 @@ export const projects: Project[] = [
       "Plataformero 2D inspirado en la mitologia japonesa donde el jugador controla a un kistune que busca su proposito en el mundo terrenal.",
     tags: ["Unity", "C#", "PC"],
     link: "https://github.com/TomMarinAriza/Kitsune-videogame-demo",
+    trailer: "",
   },
 ];
 
@@ -25,4 +27,4 @@ export const skills = [
   "Optimizacion",
 ];
 
-export const toolset = ["Unity", "Blender", "LibreSprite"];
+export const toolset = ["Unity", "Blender", "LibreSprite","Godot","Notion","Git"];

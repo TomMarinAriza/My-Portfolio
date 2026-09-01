@@ -27,7 +27,18 @@ export default function Proyectos({ projects }: ProyectosProps) {
             <p className="text-sm leading-6 text-[color:var(--muted)]">
               {project.description}
             </p>
-            <a
+            {project.trailer ? (
+              <div className="overflow-hidden rounded-xl border border-white/10 bg-black/20">
+                <video
+                  className="aspect-video w-full object-cover"
+                  controls
+                  preload="metadata"
+                  src={project.trailer}
+                />
+              </div>
+            ) : null}
+            {project.link ? (
+              <a
               className="text-xs uppercase tracking-[0.3em] text-[color:var(--accent)] transition hover:text-[color:var(--accent-strong)]"
               href={project.link}
               target="_blank"
@@ -35,6 +46,7 @@ export default function Proyectos({ projects }: ProyectosProps) {
             >
               Ver repositorio
             </a>
+            ) : null}
             <div className="mt-auto flex flex-wrap gap-2">
               {project.tags.map((tag) => (
                 <span

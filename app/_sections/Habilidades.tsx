@@ -58,9 +58,10 @@ export default function Habilidades({ skills, toolset }: HabilidadesProps) {
         <div className="mt-8 rounded-2xl border border-[color:var(--line)] bg-[color:var(--surface-strong)] p-6">
           <p className="panel-title">Metodologia</p>
           <p className="mt-3 text-sm leading-6 text-[color:var(--muted)]">
-            Trabajo con una base clara de diseño, prototipos jugables y iteraciones rapidas
-            para pulir el feel del juego, la progresion y la claridad del objetivo del
-            jugador.
+            Parto siempre del GDD para tener una hoja de ruta clara del curso del juego,
+            lo que me permite iterar rapido sin perder de vista la vision original.
+            Cada iteracion se valida en equipo, porque las mejores decisiones de diseño
+            salen de cruzar perspectivas, no de trabajar en aislamiento.
           </p>
         </div>
       </div>
