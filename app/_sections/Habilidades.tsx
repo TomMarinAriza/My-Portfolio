@@ -3,6 +3,14 @@ type HabilidadesProps = {
   toolset: string[];
 };
 
+const statBySkill: Record<string, number> = {
+  "Diseño de niveles": 96,
+  "Gameplay 2D": 94,
+  "Combate y enemigos": 92,
+  "Progresion por habilidades": 90,
+  "Optimizacion": 88,
+};
+
 export default function Habilidades({ skills, toolset }: HabilidadesProps) {
   return (
     <section
@@ -10,23 +18,32 @@ export default function Habilidades({ skills, toolset }: HabilidadesProps) {
       className="reveal reveal-delay-2 grid gap-8 lg:grid-cols-[1fr_1.1fr]"
     >
       <div className="panel rounded-2xl p-8">
-        <p className="hud-label">Habilidades</p>
-        <h2 className="font-display mt-4 text-3xl sm:text-4xl">Lo que domino</h2>
-        <div className="mt-6 grid gap-3 sm:grid-cols-2">
-          {skills.map((skill) => (
-            <div
-              key={skill}
-              className="rounded-xl border border-[color:var(--line)] bg-[color:var(--surface)] px-4 py-3 text-xs uppercase tracking-[0.22em]"
-            >
-              {skill}
-            </div>
-          ))}
+        <p className="hud-label">Stats</p>
+        <h2 className="font-display mt-4 text-3xl sm:text-4xl">Habilidades principales</h2>
+        <div className="mt-6 space-y-5">
+          {skills.map((skill) => {
+            const value = statBySkill[skill] ?? 85;
+            return (
+              <div key={skill} className="space-y-2">
+                <div className="flex items-center justify-between gap-4 text-[0.6rem] uppercase tracking-[0.25em] text-[color:var(--muted)]">
+                  <span>{skill}</span>
+                  <span className="text-[color:var(--accent)]">{value}</span>
+                </div>
+                <div className="h-2 rounded-full bg-[color:var(--surface)]">
+                  <div
+                    className="h-full rounded-full bg-[color:var(--accent)]"
+                    style={{ width: `${value}%` }}
+                  />
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
       <div className="panel rounded-2xl p-8">
-        <p className="hud-label">Toolset</p>
+        <p className="hud-label">Loadout</p>
         <h2 className="font-display mt-4 text-3xl sm:text-4xl">
-          Herramientas que me gusta usar
+          Herramientas de aventura
         </h2>
         <div className="mt-6 flex flex-wrap gap-3">
           {toolset.map((tool) => (
@@ -41,9 +58,9 @@ export default function Habilidades({ skills, toolset }: HabilidadesProps) {
         <div className="mt-8 rounded-2xl border border-[color:var(--line)] bg-[color:var(--surface-strong)] p-6">
           <p className="panel-title">Metodologia</p>
           <p className="mt-3 text-sm leading-6 text-[color:var(--muted)]">
-            Trabajo desde el GDD (Game Design Document) para definir claramente cada
-            sistema y su interaccion con el resto. Me gusta iterar rapido sobre
-            prototipos jugables para ajustar sensaciones y pulir el gameplay loop.
+            Trabajo con una base clara de diseño, prototipos jugables y iteraciones rapidas
+            para pulir el feel del juego, la progresion y la claridad del objetivo del
+            jugador.
           </p>
         </div>
       </div>

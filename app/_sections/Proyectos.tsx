@@ -9,7 +9,6 @@ export default function Proyectos({ projects }: ProyectosProps) {
     <section id="proyectos" className="reveal reveal-delay-1">
       <div className="flex flex-col gap-3">
         <p className="hud-label">Proyectos destacados</p>
-        <h2 className="font-display text-3xl sm:text-4xl">Mundos en produccion</h2>
       </div>
       <div className="mt-8 grid gap-6 lg:grid-cols-3">
         {projects.map((project) => (
